@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>Classic Snake Game</title>
     <style>
         * {
@@ -19,6 +21,8 @@
             align-items: center;
             min-height: 100vh;
             color: white;
+            overflow: hidden;
+            touch-action: none;
         }
 
         #loading-screen {
@@ -80,6 +84,9 @@
             border-radius: 20px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            max-width: 95vw;
+            max-height: 95vh;
+            overflow: hidden;
         }
 
         h1 {
@@ -93,6 +100,8 @@
             background: #1a1a2e;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
             margin: 0 auto;
+            max-width: 100%;
+            touch-action: none;
         }
 
         .info-panel {
@@ -113,6 +122,82 @@
             margin-top: 20px;
             font-size: 0.9em;
             opacity: 0.9;
+        }
+
+        .mobile-controls {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            #game-container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 10px;
+            }
+
+            .loading-content h1 {
+                font-size: 2em;
+            }
+
+            .loading-content p {
+                font-size: 1.1em;
+                margin-bottom: 15px;
+            }
+
+            .info-panel {
+                font-size: 1em;
+                margin: 10px 0;
+            }
+
+            .info-item {
+                padding: 8px 15px;
+                min-width: 100px;
+            }
+
+            .controls {
+                font-size: 0.8em;
+            }
+
+            .desktop-controls {
+                display: none;
+            }
+
+            .mobile-controls {
+                display: block;
+            }
+
+            .footer {
+                font-size: 0.8em;
+            }
+
+            #game-over h2 {
+                font-size: 2em;
+            }
+
+            #game-over {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #game-container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .info-panel {
+                font-size: 0.9em;
+            }
         }
 
         #game-over {
